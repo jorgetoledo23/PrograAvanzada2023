@@ -24,6 +24,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Update="UI\AddCarrera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UI\AddCarreraSede.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UI\ViewCarrera.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

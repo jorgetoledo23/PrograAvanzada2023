@@ -32,7 +32,6 @@ namespace AppDesktop.Model
         public int Id { get; set; }
         public string Name { get; set; }
         public string Duracion { get; set; }
-
         public List<CarreraAsignatura> AsignaturasCarrera{ get; set; }
 
     }
