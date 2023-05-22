@@ -70,8 +70,8 @@ namespace AppDesktop
                     vc.ShowDialog();
                     break;
                 case "CARRERASEDE":
-                    AddCarreraSede cs = new AddCarreraSede();
-                    cs.ShowDialog();
+                    ViewCarreraSede vcs = new ViewCarreraSede();
+                    vcs.ShowDialog();
                     break;
             }
         }

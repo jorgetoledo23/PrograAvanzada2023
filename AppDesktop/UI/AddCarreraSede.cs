@@ -20,46 +20,50 @@ namespace AppDesktop
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (!validarInputs())
+            try
             {
-                MessageBox.Show("Todos los campos son Obligatorios!","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                try
+
+                //validar que no esten vinculadas
+                using (var context = new AppDbContext())
                 {
-                    using (var context = new AppDbContext())
+                    CarreraSede cs = new CarreraSede();
+                    cs.CarreraId = (int)cbCarreras.SelectedValue;
+                    cs.SedeId = (int)cbSedes.SelectedValue;
+
+
+                    var existeVinculo = context.tblCarreraSede
+                        .Where(x => x.SedeId == cs.SedeId && x.CarreraId == cs.CarreraId)
+                        .FirstOrDefault();
+
+                    if (existeVinculo != null)
                     {
-                        Sede nuevaSede = new Sede()
-                        {
-                            
-                        };
-                        context.Add(nuevaSede);
+                        MessageBox.Show("Sede y Carrera ya estan Vinculados!");
+                        
+                    }
+                    else
+                    {
+                        context.Add(cs);
                         context.SaveChanges();
 
                         MessageBox
-                                .Show("Sede Agregada"
+                                .Show("Carrera Agregada a la Sede"
                                 , "Informacion"
                                 , MessageBoxButtons.OK
                                 , MessageBoxIcon.Information);
                         this.Close();
-
                     }
-                }
 
-                catch (Exception E)
-                {
-                    MessageBox.Show(E.Message, "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                 }
             }
-            
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message, "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+            }
 
         }
+       
     
-        private Boolean validarInputs()
-        {
-            return false;
-        }
+        
 
         private void AddCarreraSede_Load(object sender, EventArgs e)
         {
@@ -79,11 +83,6 @@ namespace AppDesktop
                 cbCarreras.ValueMember = "Id";
                 cbCarreras.DisplayMember = "Name";
             }
-
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
         }
     }

@@ -70,8 +70,7 @@
             this.cbCarreras.Name = "cbCarreras";
             this.cbCarreras.Size = new System.Drawing.Size(322, 28);
             this.cbCarreras.TabIndex = 8;
-            this.cbCarreras.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
-            // 
+              // 
             // label1
             // 
             this.label1.AutoSize = true;
