@@ -24,6 +24,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Update="UI\AddDocenteAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UI\AddCarrera.cs">
       <SubType>Form</SubType>
     </Compile>

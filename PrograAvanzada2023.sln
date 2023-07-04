@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppDesktop", "AppDesktop\AppDesktop.csproj", "{B97AF76A-8C55-4114-8C05-2FA2C2EF8945}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebInacap", "WebInacap\WebInacap.csproj", "{FB80C048-3C75-4A2C-890B-9048882567C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B97AF76A-8C55-4114-8C05-2FA2C2EF8945}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B97AF76A-8C55-4114-8C05-2FA2C2EF8945}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B97AF76A-8C55-4114-8C05-2FA2C2EF8945}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB80C048-3C75-4A2C-890B-9048882567C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB80C048-3C75-4A2C-890B-9048882567C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB80C048-3C75-4A2C-890B-9048882567C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB80C048-3C75-4A2C-890B-9048882567C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

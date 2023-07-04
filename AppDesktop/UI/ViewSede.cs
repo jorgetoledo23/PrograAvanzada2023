@@ -20,6 +20,29 @@ namespace AppDesktop
 
         private void ViewSede_Load(object sender, EventArgs e)
         {
+            llenarLista();
+        }
+
+        private void listViewSedes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnDelete.Enabled = true;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            using (var context = new AppDbContext())
+            {
+                var sedeName = listViewSedes.SelectedItems[0].Text;
+                var sede = context.tblSedes.FirstOrDefault(x => x.Name.Equals(sedeName));
+                context.Remove(sede);
+                context.SaveChanges();
+                llenarLista();
+            }
+        }
+
+        void llenarLista()
+        {
+            listViewSedes.Items.Clear();
             using (var context = new AppDbContext())
             {
                 var Sedes = context.tblSedes.ToList();

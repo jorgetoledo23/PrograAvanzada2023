@@ -4,9 +4,9 @@ namespace AppDesktop
 {
     public partial class MenuPrincipal : Form
     {
-        private Model.Model _User { get; set; }
+        private Usuario _User { get; set; }
         private string SelectedMenu { get; set; }
-        public MenuPrincipal(Model.Model User)
+        public MenuPrincipal(Usuario User)
         {
             InitializeComponent();
             _User = User;

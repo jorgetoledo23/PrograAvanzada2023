@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AppDesktop.Model
 {
-    public class Model
+    public class Usuario
     {
         public string Name { get; set; }
         public int Id { get; set; }
@@ -61,10 +61,8 @@ namespace AppDesktop.Model
     public class CarreraAsignatura
     {
         public int Id { get; set; }
-
         public int CarreraId { get; set; }
         public Carrera Carrera { get; set; }
-
 
         public int AsignaturaId { get; set; }
         public Asignatura Asignatura { get; set; }

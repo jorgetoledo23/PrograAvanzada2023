@@ -11,7 +11,7 @@ namespace AppDesktop.Model
     {
 
         public DbSet<Sede> tblSedes { get; set; }
-        public DbSet<Model> tblUsuarios { get; set; }
+        public DbSet<Usuario> tblUsuarios { get; set; }
         public DbSet<Carrera> tblCarreras { get; set; }
         public DbSet<Asignatura> tblAsignaturas { get; set; }
         public DbSet<Docente> tblDocentes { get; set; }

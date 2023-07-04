@@ -1,0 +1,74 @@
+﻿@model IEnumerable<WebInacap.Models.Carrera>
+
+@{
+    ViewData["Title"] = "Administracion de Carreras";
+}
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary m-2 p-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <i class="bi bi-patch-plus mx-2"></i>Agregar Carrera
+</button>
+
+@{
+    if (TempData["Error"] != null){
+        <div class="alert alert-danger" role="alert">
+            @TempData["Error"]
+        </div>
+    }
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Duracion en Semestres
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duracion)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Carrera</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="addCarrera" method="post">
+                    <div class="mb-3">
+                        <input type="text" name="Name" class="form-control" placeholder="Nombre Carrera">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" name="Duracion" class="form-control" placeholder="Duracion en Semestres">
+                    </div>
+                    <button type="submit" class="btn btn-primary col-12">Agregar Carrera</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

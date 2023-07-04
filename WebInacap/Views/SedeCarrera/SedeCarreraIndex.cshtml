@@ -1,0 +1,77 @@
+﻿@model SedeCarreraViewModel
+
+<button type="button" class="btn btn-primary m-2 p-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <i class="bi bi-patch-plus mx-2"></i>Vincular Carrera a Sede
+</button>
+@{
+    if (TempData["Info"] != null)
+    {
+        if (TempData["Info"].ToString().StartsWith("Info"))
+        {
+            <div class="alert alert-success" role="alert">
+                @TempData["Info"]
+            </div>
+        }else{
+            <div class="alert alert-danger" role="alert">
+                @TempData["Info"]
+            </div>
+        }
+        
+    }
+}
+
+
+<div class="accordion" id="accordionExample">
+    @foreach (var sede in Model.Sedes)
+    {
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#@sede.Nombre" aria-expanded="true" aria-controls="collapseOne">
+                    @sede.Nombre
+                </button>
+            </h2>
+            <div id="@sede.Nombre" class="accordion-collapse collapse show">
+                <div class="accordion-body">
+                    @foreach (var item in Model.CarrerasSede)
+                    {
+                        if(sede.Id == item.SedeId){
+                            <p>@item.Carrera.Name<span>
+                                <a asp-action="deleteSedeCarrera" asp-route-sedeId="@sede.Id" asp-route-carreraId="@item.CarreraId">
+                                    <i class="bi bi-dash-circle mx-2 "></i>
+                                </a></span>
+                            </p>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+
+    } 
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Vincular Carrera a Sede</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="addCarreraSede" method="post">
+                    <div class="mb-3">
+                        <select class="form-select" name="SedeId" asp-items="ViewBag.Sedes">
+
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <select class="form-select" name="CarreraId" asp-items="ViewBag.Carreras">
+
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary col-12">Vincular</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

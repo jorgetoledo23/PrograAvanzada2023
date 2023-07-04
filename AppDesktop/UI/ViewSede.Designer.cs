@@ -33,6 +33,7 @@
             this.Direccion = new System.Windows.Forms.ColumnHeader();
             this.Ciudad = new System.Windows.Forms.ColumnHeader();
             this.Correo = new System.Windows.Forms.ColumnHeader();
+            this.btnDelete = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
             // 
             // listViewSedes
@@ -42,12 +43,14 @@
             this.Direccion,
             this.Ciudad,
             this.Correo});
+            this.listViewSedes.FullRowSelect = true;
             this.listViewSedes.Location = new System.Drawing.Point(12, 12);
             this.listViewSedes.Name = "listViewSedes";
             this.listViewSedes.Size = new System.Drawing.Size(575, 355);
             this.listViewSedes.TabIndex = 0;
             this.listViewSedes.UseCompatibleStateImageBehavior = false;
             this.listViewSedes.View = System.Windows.Forms.View.Details;
+            this.listViewSedes.SelectedIndexChanged += new System.EventHandler(this.listViewSedes_SelectedIndexChanged);
             // 
             // Nombre
             // 
@@ -69,11 +72,28 @@
             this.Correo.Text = "Correo";
             this.Correo.Width = 150;
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Enabled = false;
+            this.btnDelete.IconChar = FontAwesome.Sharp.IconChar.Trash;
+            this.btnDelete.IconColor = System.Drawing.Color.Black;
+            this.btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDelete.Location = new System.Drawing.Point(374, 382);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(211, 56);
+            this.btnDelete.TabIndex = 1;
+            this.btnDelete.Text = "Eliminar";
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // ViewSede
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(597, 450);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.listViewSedes);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(615, 497);
@@ -94,5 +114,6 @@
         private ColumnHeader Direccion;
         private ColumnHeader Ciudad;
         private ColumnHeader Correo;
+        private FontAwesome.Sharp.IconButton btnDelete;
     }
 }
